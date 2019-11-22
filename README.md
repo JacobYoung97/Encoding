@@ -6,3 +6,6 @@ However, I am changing some of the text to have a slightly better look to the co
 ## Basic Input Version (non-pretty output)
 [First version: commit #3f48beb3561deb1a0f50797e96faf3175739128b](https://github.com/JacobYoung97/Encoding/commit/3f48beb3561deb1a0f50797e96faf3175739128b)
 
+## Basic Input Version (formatted output)
+[Second version: commit #61eefc7b476fd99e7120cade5f737aef4603e445](https://github.com/JacobYoung97/Encoding/commit/61eefc7b476fd99e7120cade5f737aef4603e445)
+

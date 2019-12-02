@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#DEFINE BYTES_PER_LINE 24
+#define BYTES_PER_LINE 24
 
 int main() {
 

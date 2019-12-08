@@ -15,3 +15,6 @@ However, I am changing some of the text to have a slightly better look to the co
 ## Second hex decoding (prints hex formatted with the encoder)
 [Fourth version: commit #ff5b9c5ee09ba652bc4d4551367a3de2d0eedf9a](https://github.com/JacobYoung97/Encoding/commit/ff5b9c5ee09ba652bc4d4551367a3de2d0eedf9a)
 
+## Third hex decoding (checks contents of first line for security)
+[Fifth version: commit #941e947fe887b6c6d0e1960193b7a6137bcbef04](https://github.com/JacobYoung97/Encoding/commit/941e947fe887b6c6d0e1960193b7a6137bcbef04)
+

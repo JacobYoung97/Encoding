@@ -12,3 +12,6 @@ However, I am changing some of the text to have a slightly better look to the co
 ## First hex decoding (hex to decimal)
 [Third version: commit #88fc79bc94322ab1488cd726cc08c850739a6ed3](https://github.com/JacobYoung97/Encoding/commit/88fc79bc94322ab1488cd726cc08c850739a6ed3)
 
+## Second hex decoding (prints hex formatted with the encoder)
+[Fourth version: commit #ff5b9c5ee09ba652bc4d4551367a3de2d0eedf9a](https://github.com/JacobYoung97/Encoding/commit/ff5b9c5ee09ba652bc4d4551367a3de2d0eedf9a)
+

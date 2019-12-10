@@ -11,6 +11,7 @@
 #define FALSE 0
 
 void checkFile(char * line);
+int processLine(char * line);
 
 int main() {
 	char line_buffer[LINE_LENGTH];
@@ -41,10 +42,10 @@ int main() {
 			if(first_line) {
 				checkFile(line_buffer);
 				first_line = FALSE;
+			} else {
+				if(processLine(line_buffer))
+					break;
 			}
-			
-			// display contents 
-			printf("%s", line_buffer);
 			
 			// reset index
 			buffer_index = 0;
@@ -69,3 +70,23 @@ void checkFile(char * line) {
 		exit(1);
 	}
 }
+
+/**
+ * processLine
+ * This function checks to confirm the last line of the hex encoded file has the 
+ * correct formating. If it does, it returns true and the loop in main will break.
+ * If not, then it will print the line.
+ * IN: char * - the line of the file
+ * OUT: int - TRUE (0) if the last line is found, and FALSE (1) if any other line is found
+ */
+int processLine(char * line) {
+	// If it is the last line of the file
+	if(strncmp(line, "END THE ENCODER", 15) == 0) {
+		return (TRUE);
+	} else {
+		// display contents/process the input
+		printf("%s", line);
+		return (FALSE);
+	}
+}
+ 

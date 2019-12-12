@@ -3,6 +3,17 @@
 This is a basic program that will encode/decode some text given to it. I am following the tutorial given in the description.
 However, I am changing some of the text to have a slightly better look to the code itself.
 
+## Usage
+To compile the programs, type `make` where the Makefile is present.  
+  
+Create a text file with the words you would like encoded.  
+To encode it, run the encode program like: `./encode < [fileCreated] > [destinationFile]`.  
+This will take the text you wrote and output it into another file for later decoding.  
+  
+To decode the file, run the decode program like: `./decode < [destinationFile]`.  
+The "destinationFile" is the same one as was run with the encoding program.  
+This will output the file contents decoded to the screen.
+
 ## Version history
 ### Basic Input Version (non-pretty output)
 [First version: commit #3f48beb3561deb1a0f50797e96faf3175739128b](https://github.com/JacobYoung97/Encoding/commit/3f48beb3561deb1a0f50797e96faf3175739128b)

@@ -22,3 +22,6 @@ However, I am changing some of the text to have a slightly better look to the co
 ### Fourth hex decoding (checks contents of the last line)
 [Sixth version: commit #bdc7c3615f6547bdf63c26e11ee5b4cfc1e143b5](https://github.com/JacobYoung97/Encoding/commit/bdc7c3615f6547bdf63c26e11ee5b4cfc1e143b5)
 
+## Fifth (and final tutorial) decoding (actually decodes what encode does)
+[Seventh version: commit #95f292fed96ca330412be8eb953947242844b551](https://github.com/JacobYoung97/Encoding/commit/95f292fed96ca330412be8eb953947242844b551)
+

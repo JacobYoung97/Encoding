@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -12,6 +13,7 @@
 
 void checkFile(char * line);
 int processLine(char * line);
+int charToInt(char h);
 
 int main() {
 	char line_buffer[LINE_LENGTH];
@@ -80,13 +82,56 @@ void checkFile(char * line) {
  * OUT: int - TRUE (0) if the last line is found, and FALSE (1) if any other line is found
  */
 int processLine(char * line) {
+	int len, x, a, b, v;
+	
 	// If it is the last line of the file
 	if(strncmp(line, "END THE ENCODER", 15) == 0) {
 		return (TRUE);
 	} else {
-		// display contents/process the input
-		printf("%s", line);
+		// Gets the length of the bytes
+		len = strlen(line) - 1;
+		len /= 3;
+
+		/* For every character on a line, we are indexing on a space. 
+		 * So, the actual characters are 1 and 2 over 
+		 */
+		for(x = 0; x < len; x++) {
+			// First character conversion
+			a = charToInt(*(line + 1));
+			// Second character conversion
+			b = charToInt(*(line + 2));
+			// Build value from the hexadecimal
+			v = (a << 4) + b;
+			
+			// Puts the char decoded by AA (the same thing that was encoded by encode.c)
+			putchar(v ^= 0xAA);
+			line += 3;
+		}
+
 		return (FALSE);
 	}
 }
- 
+
+/**
+ * charToInt
+ * This function will return a hex character's decimal representation
+ * IN: char - a hex character (0-F)
+ * OUT: int - the decimal representation of the hex character
+ */
+int charToInt(char h) {
+	// Checks if the character is from 0 to 9
+    if(isdigit(h)) {
+        return(h - '0');
+    }
+    
+    h = toupper(h);
+    
+    // If it is A to F then it is a hex character
+    if(h >= 'A' && h <= 'F') {
+        return(h - 'A' + 0x0A);
+    } else {
+        printf("\nInvalid hex character: %c\n", h);
+        exit(1);
+    }
+    return (0);
+}

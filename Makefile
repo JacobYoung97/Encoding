@@ -1,14 +1,14 @@
 all: encode decode hexConversion
 
 # Encode program
-encode: encode.o
+encode: encode.o encodeDecode.h
 	gcc encode.o -o encode
 
 encode.o: encode.c
 	gcc -c encode.c
 
 # Decode program
-decode: decode.o
+decode: decode.o encodeDecode.h
 	gcc decode.o -o decode
 
 decode.o: decode.c

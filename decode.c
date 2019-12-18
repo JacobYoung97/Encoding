@@ -2,18 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-
-/* This size is because we know how many bytes there are per line.
- * 24 bytes per line, each prefixed by a space and then a newline character.
- * (24 x 3) + 1
- */ 
-#define LINE_LENGTH 73
-#define TRUE 1
-#define FALSE 0
-
-void checkFile(char * line);
-int processLine(char * line);
-int charToInt(char h);
+#include "encodeDecode.h"
 
 int main() {
 	char line_buffer[LINE_LENGTH];
@@ -64,7 +53,7 @@ int main() {
  * IN: char * - the first line of the file
  */
 void checkFile(char * line) {
-	if(strncmp(line, "START THE ENCODER v1.0", 22) == 0) {
+	if(strncmp(line, OPENING, 22) == 0) {
 		// Check version number here
 		return;
 	} else {
@@ -77,7 +66,7 @@ void checkFile(char * line) {
  * processLine
  * This function checks to confirm the last line of the hex encoded file has the 
  * correct formating. If it does, it returns true and the loop in main will break.
- * If not, then it will print the line.
+ * If not, then it will decode the line.
  * IN: char * - the line of the file
  * OUT: int - TRUE (0) if the last line is found, and FALSE (1) if any other line is found
  */
@@ -85,7 +74,7 @@ int processLine(char * line) {
 	int len, x, a, b, v;
 	
 	// If it is the last line of the file
-	if(strncmp(line, "END THE ENCODER", 15) == 0) {
+	if(strncmp(line, CLOSING, 15) == 0) {
 		return (TRUE);
 	} else {
 		// Gets the length of the bytes
@@ -103,8 +92,8 @@ int processLine(char * line) {
 			// Build value from the hexadecimal
 			v = (a << 4) + b;
 			
-			// Puts the char decoded by AA (the same thing that was encoded by encode.c)
-			putchar(v ^= 0xAA);
+			// Puts the char decoded by the same thing that was encoded by encode.c
+			putchar(v ^= ENCODING);
 			line += 3;
 		}
 
@@ -119,19 +108,12 @@ int processLine(char * line) {
  * OUT: int - the decimal representation of the hex character
  */
 int charToInt(char h) {
-	// Checks if the character is from 0 to 9
-    if(isdigit(h)) {
+    if(h >= '0' && h <= '9') {
         return(h - '0');
-    }
-    
-    h = toupper(h);
-    
-    // If it is A to F then it is a hex character
-    if(h >= 'A' && h <= 'F') {
-        return(h - 'A' + 0x0A);
-    } else {
+    } else if(h >= 'A' && h <= 'F') {
+		return(h - 'A' + 0x0A);
+	} else {
         printf("\nInvalid hex character: %c\n", h);
         exit(1);
-    }
-    return (0);
+	}
 }

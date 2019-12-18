@@ -3,6 +3,13 @@
 This is a basic program that will encode/decode some text given to it. I am following the tutorial given in the description.
 However, I am changing some of the text to have a slightly better look to the code itself.
 
+## Real World Applications
+Storing files in plaintext/human readable format is never a good option for data. This program does a basic encoding of the data so it is not as easily readable.  
+However, this is not encryption so the encoding is known and can be decoded easier than text that is encrypted.
+
+In order for this to be a bit safer to encode data with, the values related to encoding in the header file would be hidden.  
+Either the header file is not made public, or the values are changed at a frequent rate to avoid possible decoding.
+
 ## Usage
 To compile the programs, type `make`.  
 To clean the directory of .o files, type `make clean`. 
@@ -41,4 +48,7 @@ This will output the file contents decoded to the screen.
 
 ### Fifth (and final tutorial) decoding (actually decodes what encode does)
 [Seventh version: commit #95f292fed96ca330412be8eb953947242844b551](https://github.com/JacobYoung97/Encoding/commit/95f292fed96ca330412be8eb953947242844b551)
+
+### Header file version (updates to make it easier to change on the fly)
+[Eighth version: commit #c0352e68447d7aa3e79c6ba1bd785fa26e77f8c7](https://github.com/JacobYoung97/Encoding/commit/c0352e68447d7aa3e79c6ba1bd785fa26e77f8c7)
 

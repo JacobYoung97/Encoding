@@ -25,7 +25,9 @@ To decode the file, run the decode program like:
 `./decode < [destinationFile]`.  
 
 The "destinationFile" is the same one as was run with the encoding program.  
-This will output the file contents decoded to the screen.
+This will output the file contents decoded to the screen.  
+
+Some samples can be found in the samples folder.
 
 ## Version history
 ### Basic Input Version (non-pretty output)
